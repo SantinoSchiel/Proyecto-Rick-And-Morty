@@ -8,7 +8,11 @@ export default function favorites({onClose}){
 
     return(
         <div style={{display:"flex",flexWrap:"wrap",marginLeft:30,justifyContent:"space-evenly"}}>
-            {myFavorites.map(favorite => (
+
+            { !myFavorites.length
+            ? <h2>Agregue un personaje a sus favoritos!</h2>
+            :
+            myFavorites.map(favorite => (
                 <Card onClose={onClose} key={favorite.id} {...favorite}/>
             ))}
         </div>

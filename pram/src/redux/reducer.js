@@ -4,7 +4,7 @@ const initialState = {
     myFavorites: [],
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => { //todo En vez de usar action puedo destructurar {type, payload} y usarlos directamente.
     switch(action.type){
         case ADD_FAV:
             return{

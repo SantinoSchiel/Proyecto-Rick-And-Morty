@@ -11,8 +11,11 @@ import Detail from "./components/detail/Detail.jsx";
 import Form from "./components/form/Form.jsx";
 import Error from "./components/error/Error.jsx";
 import Favorites from "./components/favorites/Favorites.jsx"
+import { useDispatch } from "react-redux";
+import { removeFav } from "./redux/actions.js";
 
 function App() {
+   const dispatch = useDispatch();
 
    const [characters, setCharacters] = useState([]);
 
@@ -59,8 +62,11 @@ function App() {
       );
    }
 
+
+
    const onClose = id => {
-      setCharacters(characters.filter(char => char.id !== Number(id)))
+      setCharacters(characters.filter(char => char.id !== Number(id)));
+      dispatch(removeFav(id));
    }
 
    return (

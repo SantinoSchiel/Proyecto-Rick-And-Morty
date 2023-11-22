@@ -33,16 +33,16 @@ function handleSubmit(event) {
 }
 
     return (
-        <div>
+        <div style={{display:"flex", marginLeft:800,marginTop:100,padding:10}}>
             <form onSubmit={handleSubmit}>
-                <label style={{color:"white"}}>Email: </label>
-                    <input value={userData.email} key="email" type="email" id="email" name="email" onChange={handleChange}/>
-                    <p style={{color:"white"}}>{error.email ? error.email : null}</p>
-                <label style={{color:"white"}}>Password: </label>
-                    <input value={userData.password} key="password" type="password" id="password" name="password" onChange={handleChange}/>
-                    <p style={{color:"white"}}>{error.password ? error.password : null}</p>
+                <label style={{color:"black"}}><strong>Email: </strong></label>
+                    <input value={userData.email} key="email" type="email" id="email" name="email" onChange={handleChange} placeholder="Nombre..." style={{backgroundColor:"greenyellow",opacity:0.8,borderRadius:6,padding:7}}/>
+                    <p style={{color:"black"}}><strong>{error.email ? error.email : null}</strong></p>
+                <label style={{color:"black"}}><strong>Password: </strong></label>
+                    <input value={userData.password} key="password" type="password" id="password" name="password" onChange={handleChange} placeholder="Contraseña..." style={{backgroundColor:"greenyellow",opacity:0.8,borderRadius:6,padding:7}}/>
+                    <p style={{color:"black"}}><strong>{error.password ? error.password : null}</strong></p>
 
-                <button type="submit" onSubmit={handleSubmit} disabled={error.email || error.password}>Submit</button>    
+                <button type="submit" onSubmit={handleSubmit} disabled={error.email || error.password} style={{backgroundColor:"greenyellow",borderRadius:6,padding:4}}><strong>Enviar</strong></button>    
             </form>
         </div>
     )
