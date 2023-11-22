@@ -48,11 +48,11 @@ export default function Card(props) {
             )
          }
 
-         <button onClick={() => { props.onClose(props.id); { handleFavorite } }} style={{ opacity: 0.5, backgroundColor: "red", marginLeft: 277, marginTop: 0, display: "flex", cursor: "pointer", borderStyle: "solid" }}><strong>X</strong></button>
+         <button onClick={() => { props.onClose(props.id); { handleFavorite } }} style={{ opacity: 0.8, backgroundColor: "red", marginLeft: 277, marginTop: 0, display: "flex", cursor: "pointer", borderStyle: "solid" }}><strong>X</strong></button>
          <img src={props.image} alt=''>
          </img>
-         <Link to={`/detail/${props.id}`}>
-            <h2 style={{ backgroundColor: "yellow", display: "flex", margin: 0, opacity: 0.6 }}>{props.name}</h2>
+         <Link to={`/detail/${props.id}`} style={{textDecoration:"none",color:"black"}}>
+            <h2 style={{ backgroundColor: "yellow", display: "flex", margin: 0, opacity: 0.6}}>{props.name}</h2>
          </Link>
          {/* <h2 style={{backgroundColor:"gray",display:"flex",margin:0}}>{props.status}</h2> */}
          <h2 style={{ backgroundColor: "gray", display: "flex", margin: 0, opacity: 0.8 }}>{props.species}</h2>

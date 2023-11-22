@@ -25,14 +25,14 @@ export default function Detail() {
 
 
     return (
-        <div>
+        <div style={{display:"flex",marginLeft:800}}>
             {character.name && (
-                <div style={{color:"white"}}>
-                    <h2>Name: {character.name}</h2>
-                    <h2>Status: {character.status}</h2>
-                    <h2>Species: {character.species}</h2>
-                    <h2>Gender: {character.gender}</h2>
-                    <h2>Origin: {character.origin && character.origin.name}</h2>
+                <div style={{color:"black"}}>
+                    <h2 style={{opacity:0.8,backgroundColor:"gray",marginBottom:0}}>Name: {character.name}</h2>
+                    <h2 style={{opacity:0.8,backgroundColor:"gray",margin:0}}>Status: {character.status}</h2>
+                    <h2 style={{opacity:0.8,backgroundColor:"gray",margin:0}}>Species: {character.species}</h2>
+                    <h2 style={{opacity:0.8,backgroundColor:"gray",margin:0}}>Gender: {character.gender}</h2>
+                    <h2 style={{opacity:0.8,backgroundColor:"gray",margin:0}}>Origin: {character.origin && character.origin.name}</h2>
                     <img src={character.image} alt={character.name} />
                 </div>
             )}
