@@ -7,3 +7,6 @@ export default class Error extends Component {
     )
   }
 }
+
+//? En este archivo renderizamos un mensaje de error para proximamente renderizarlo cuando se ingrese a una ruta
+//? no debida.

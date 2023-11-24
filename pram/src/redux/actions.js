@@ -1,4 +1,5 @@
 //todo /////////// actions-creators //////////////
+//todo Estas actions las crearemos para usarlas en el reducer.
 
 import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions-types"
 
@@ -29,3 +30,5 @@ export const orderCards = (order) => {
         payload: order
     }
 }
+
+//todo Cada funcion tiene su respectivo type y recibe algun valor por props que se guardara en la prop payload.

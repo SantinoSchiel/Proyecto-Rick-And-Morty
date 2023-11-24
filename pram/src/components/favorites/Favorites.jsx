@@ -7,17 +7,21 @@ import { filterCards, orderCards } from "../../redux/actions";
 export default function favorites({ onClose }) {
 
     const myFavorites = useSelector(state => state.myFavorites);
+    //? Seleccionamos la seccion myFavorites del state y la guardamos en una constante.
 
     const dispatch = useDispatch();
 
     const handleOrder = event => {
         dispatch(orderCards(event.target.value));
     }
+    //? Esta funcion recibe un evento por parametro y despacha la funcion orderCards con el value del evento
+    //? (event.target.value), tambien podriamos  destructurar (const {value} = event.target) para despachar value.
 
     const handleFilter = event => {
         dispatch(filterCards(event.target.value))
     }
-
+    //? Esta funcion recibe un evento y despacha la funcion filterCards con el value del evento.
+    
     return (
 
         <div>
@@ -34,8 +38,7 @@ export default function favorites({ onClose }) {
                     <option value="Unknow"><strong>Unknow</strong></option>
                 </select>
             </div>
-
-
+            //Todo Renderizamos varias opciones para ordenar las cartas de nuestros favoritos segun orden o genero.
 
             <div
                 style={{
@@ -45,13 +48,16 @@ export default function favorites({ onClose }) {
                     justifyContent: "space-evenly"
                 }}>
 
-                {!myFavorites.length
-                    ? <h2>Agregue un personaje a sus favoritos!</h2>
+                {
+                    !myFavorites.length
+                    ? <h2 style={{color:"orangered"}}>Agregue un personaje a sus favoritos!</h2>
                     :
                     myFavorites.map(favorite => (
                         <Card onClose={onClose} key={favorite.id} {...favorite} />
-                    ))}
+                    ))
+                }
             </div>
+            //Todo Este ternario pide que agregues una carta a tus favs si es que no hay, y si hay renderiza la Card.
         </div>
 
 

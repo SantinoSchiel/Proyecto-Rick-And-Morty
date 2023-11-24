@@ -23,25 +23,8 @@ export default function Nav(props) {
 
             <SearchBar onSearch={props.onSearch} />
         </div>
+        //* La funcion Nav renderiza la barra de navegacion para poder desplazarse por la pagina, cada boton te
+        //* dirige a su respectiva ruta. Tambien tenemos el boton logout con la propiedad onClick = {props.logout}
+        //* que te dirige a la pagina de inicio para loguearse.
     )
 }
-
-// export default function Nav(props) {
-
-//     return(
-//     <div className="Barra">
-//         <NavLink to = "/home">
-//             <button>Home</button>
-//         </NavLink>
-
-//         <NavLink to = "/about">
-//             <button>About</button>
-//         </NavLink>
-
-//         <button onClick={props.logout}>Logout</button>
-
-//         <SearchBar onSearch={props.onSearch}/>
-
-//     </div>
-//     )
-// }
