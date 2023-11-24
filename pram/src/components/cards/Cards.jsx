@@ -8,7 +8,7 @@ export default function Cards({ characters, onClose }) {
                flexWrap: "wrap",
                marginLeft: 30,
                justifyContent: "space-evenly" }}>
-               //? Le doy estilo al renderizado de las Cards sobretodo para que esten ordenadas al agregar muchas.
+               {/* //? Le doy estilo al renderizado de las Cards sobretodo para que esten ordenadas al agregar muchas. */}
 
 {
       !characters.length

@@ -38,7 +38,7 @@ export default function favorites({ onClose }) {
                     <option value="Unknow"><strong>Unknow</strong></option>
                 </select>
             </div>
-            //Todo Renderizamos varias opciones para ordenar las cartas de nuestros favoritos segun orden o genero.
+            {/* //Todo Renderizamos varias opciones para ordenar las cartas de nuestros favoritos segun orden o genero. */}
 
             <div
                 style={{
@@ -57,7 +57,7 @@ export default function favorites({ onClose }) {
                     ))
                 }
             </div>
-            //Todo Este ternario pide que agregues una carta a tus favs si es que no hay, y si hay renderiza la Card.
+            {/* //Todo Este ternario pide que agregues una carta a tus favs si es que no hay, y si hay renderiza la Card. */}
         </div>
 
 
