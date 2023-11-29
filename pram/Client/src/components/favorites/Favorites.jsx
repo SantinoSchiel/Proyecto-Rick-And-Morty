@@ -50,7 +50,7 @@ export default function favorites({ onClose }) {
 
                 {
                     !myFavorites.length
-                    ? <h2 style={{color:"orangered"}}>Agregue un personaje a sus favoritos!</h2>
+                    ? <h2 style={{color:"black"}}>Agregue un personaje a sus favoritos!</h2>
                     :
                     myFavorites.map(favorite => (
                         <Card onClose={onClose} key={favorite.id} {...favorite} />

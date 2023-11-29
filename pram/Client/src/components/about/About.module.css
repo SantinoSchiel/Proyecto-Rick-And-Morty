@@ -1,0 +1,18 @@
+body div h1{
+    background-color: rgba(125, 123, 123, 0.597);
+    border-radius: 8px;
+}
+
+body div p {
+    background-color: rgba(128, 128, 128, 0.541);
+    border-radius: 8px;
+}
+
+div h1{
+    display:inline;
+    margin-top: 100px;
+}
+
+.container {
+    margin: 20px;
+}

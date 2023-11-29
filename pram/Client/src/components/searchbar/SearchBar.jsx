@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import style from "./SearchBar.module.css"
 
 
 export default function SearchBar(props) {
@@ -22,7 +23,7 @@ export default function SearchBar(props) {
 
 
    return (
-      <div style={{alignItems:"center",backgroundColor:"gray",borderStyle:"none"}}>
+      <div style={{alignItems:"center",borderStyle:"none",marginBottom:20}} className={style.container}>
          
          <input value={id} onChange={handleChange} type='search' placeholder="id..." style={{borderRadius:6,padding:7,margin:10}}/>
          <button onClick={handleClick} style={{margin:10,backgroundColor:"yellow",borderRadius:7,padding:7,borderBlockStyle:"solid",cursor:"pointer",fontSize:"medium"}}> <strong>Agregar</strong></button>

@@ -1,8 +1,10 @@
 import React from "react";
 import Card from "../card/Card";
+import style from "./Cards.module.css"
 
 export default function Cards({ characters, onClose }) {
    return <div 
+               className={style.container}
               style={{
                display: "flex",
                flexWrap: "wrap",
@@ -12,7 +14,7 @@ export default function Cards({ characters, onClose }) {
 
 {
       !characters.length
-      ? <h2 style={{color:"orangered"}}>Por favor agregue un personaje por su id...</h2>
+      ? <h2 style={{color:"black"}}>Por favor agregue un personaje por su id...</h2>
       :
       characters.map(character => (
          <Card onClose={onClose} key={character.id} {...character} />

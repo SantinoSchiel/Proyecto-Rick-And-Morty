@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Nav(props) {
     return (
-        <div style={{ backgroundColor: "yellow", opacity: 0.7 }}>
+        <div style={{ backgroundColor: "rgba(255, 255, 0, 0.523)"}}>
             <NavLink to={"/about"}>
                 <button style={{ backgroundColor: "skyblue", opacity: 1, display: "inline-flex", marginLeft: 100, padding: 10, borderRadius: 10, cursor: "pointer" }}> <strong style={{fontWeight:800}}>About🤔</strong></button>
             </NavLink>
