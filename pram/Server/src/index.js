@@ -16,9 +16,21 @@ const server = http.createServer((req, res) => {
         const character = data.find((char) => char.id === Number(id));
 
         // Envía como respuesta un JSON con el personaje.
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(character));
-    }
-})
-
-server.listen(PORT, "localhost")
+        if (character) {
+            return res
+              .writeHead(200, { "Content-Type": "application/json" })
+              .end(JSON.stringify(character));
+          } else {
+            return res
+              .writeHead(404, { "Content-Type": "application/json" })
+              .end(JSON.stringify({ message: "Character Not Found" }));
+          }
+        }
+        return res
+          .writeHead(404, { "Content-Type": "application/json" })
+          .end(JSON.stringify({ message: "Wrong URL" }));
+      })
+      .listen(PORT, "127.0.0.1", () => {
+        console.log("Run port server 3001");
+      });
+    
