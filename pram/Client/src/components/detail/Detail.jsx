@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom"
 //? El hook useParams nos permite acceder desde un componente a los parámetros de la ruta.
 
 import { useState, useEffect } from "react"
-const URL = "https://rym2.up.railway.app/api/character";
-const API_KEY = "henrystaff";
+// const URL = "https://rym2.up.railway.app/api/character";
+// const API_KEY = "henrystaff";
+// `${URL}/${id}?key=${API_KEY}`
 
 
 export default function Detail() {
@@ -15,7 +16,7 @@ export default function Detail() {
     // Creamos el estado character iniciandolo en un array vacio.
 
     useEffect(() => {
-        axios(`${URL}/${id}?key=${API_KEY}`).then(
+        axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
             ({ data }) => {
                 if (data.name) {
                     setCharacter(data);

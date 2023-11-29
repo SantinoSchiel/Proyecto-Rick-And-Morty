@@ -3,10 +3,11 @@ import "./App.css";
 import Cards from "./components/cards/Cards.jsx";
 import Nav from "./components/nav/Nav.jsx";
 import axios from "axios";
-const URL = "https://rym2.up.railway.app/api/character";
-const API_KEY = "henrystaff";
+// const URL = "https://rym2.up.railway.app/api/character";
+// const API_KEY = "henrystaff";
+// `${URL}/${id}?key=${API_KEY}`
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import About from "./components/about/about.jsx";
+import About from "./components/about/About.jsx";
 import Detail from "./components/detail/Detail.jsx";
 import Form from "./components/form/Form.jsx";
 import Error from "./components/error/Error.jsx";
@@ -62,7 +63,7 @@ function App() {
       if (charId.length) {
          return alert(`${charId[0].name} ya existe!`)
       }
-      axios(`${URL}/${id}?key=${API_KEY}`).then(
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
          ({ data }) => {
             if (data.name) {
                setCharacters((oldChars) => [...oldChars, data]);
@@ -78,7 +79,7 @@ function App() {
    //? y en caso de que ingreses un id no valido te muestra una alerta.
 
    const onClose = id => {
-      setCharacters(characters.filter(char => char.id !== Number(id)));
+      setCharacters( (characters) => characters.filter(char => char.id !== Number(id)));
       dispatch(removeFav(id));
    }
    //? Esta funcion recibe un id, entonces seteara el estado characters filtrando el id recibido con el id del
