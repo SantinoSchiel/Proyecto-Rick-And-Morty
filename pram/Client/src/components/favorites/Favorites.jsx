@@ -27,15 +27,15 @@ export default function favorites({ onClose }) {
         <div>
             <div>
                 <select style={{backgroundColor: "skyblue", opacity: 0.8, padding: 5, borderRadius: 10, cursor: "pointer",fontSize:"large"}} name="order" onChange={handleOrder}>
-                    <option value="A"> <strong>Ascendente</strong> </option>
-                    <option value="D"> <strong>Descendente</strong> </option>
+                    <option value="A"> Ascendente </option>
+                    <option value="D"> Descendente </option>
                 </select>
                 <select name="filter" onChange={handleFilter} style={{backgroundColor: "skyblue", opacity: 0.8, padding: 5, borderRadius: 10, cursor: "pointer",fontSize:"large"}}>
-                    <option value="All"> <strong>All</strong> </option>
-                    <option value="Male"><strong>Male</strong></option>
-                    <option value="Female"><strong>Female</strong></option>
-                    <option value="Genderless"><strong>Genderless</strong></option>
-                    <option value="Unknow"><strong>Unknow</strong></option>
+                    <option value="All"> All </option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Genderless">Genderless</option>
+                    <option value="Unknow">Unknow</option>
                 </select>
             </div>
             {/* //Todo Renderizamos varias opciones para ordenar las cartas de nuestros favoritos segun orden o genero. */}

@@ -28,6 +28,7 @@ export default function SearchBar(props) {
          <input value={id} onChange={handleChange} type='search' placeholder="id..." style={{borderRadius:6,padding:7,margin:10}}/>
          <button onClick={handleClick} style={{margin:10,backgroundColor:"yellow",borderRadius:7,padding:7,borderBlockStyle:"solid",cursor:"pointer",fontSize:"medium"}}> <strong>Agregar</strong></button>
          <button style={{backgroundColor:"yellow",borderRadius:7,padding:7,borderBlockStyle:"solid",cursor:"pointer",marginBottom:10,fontSize:"medium"}} className="random-button" onClick={() => props.onSearch(Math.ceil(Math.random() * 826))}><strong>Agregar random</strong></button>
+         <button style={{backgroundColor:"yellow",borderRadius:7,padding:7,borderBlockStyle:"solid",cursor:"pointer",marginBottom:10,fontSize:"medium", margin:10}} onClick={props.closeAll}> <strong>Cerrar todo</strong> </button>
       </div>
       //todo Renderizamos un input donde pedimos que se ingrese un id, este se guardara en el value del evento, 
       //todo tambien tiene la propiedad onChange que ejecuta handleChange. Luego tenemos el boton para agregar

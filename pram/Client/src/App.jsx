@@ -31,20 +31,28 @@ function App() {
    const [access, setAccess] = useState(false);
    //? Creamos el estado access dandole como valor inicial false (es decir no estara logueado).
 
-   const email = "ruso@gmail.com";
-   const password = "123";
+   // const email = "ruso@gmail.com";
+   // const password = "123";
+   
+   const login = async (userData) => {
+      try {
+         const { email, password } = userData;
 
-   function login(userData) {
-      if (email === userData.email && password === userData.password) {
-         setAccess(true);
-         navigate("/home");
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+
+         const {data} = await axios(URL + `?email=${email}&password=${password}`);
+
+         const { access } = data;
+
+         if(access) {
+            setAccess(data);
+            access && navigate('/home');
+         } else {
+            alert('Credenciales incorrectas')
+         }
+      } catch (error) {
+         return res.status(500).send({ error: error.message })
       }
-      //? Esta funcion recibe userData (info del usuario) y compara que los datos ingresados sean los correctos
-      //? si esto se cumple setea el estado access en true y con ayuda de navigate te redirige al home/inicio.
-      else {
-         alert("Credenciales incorrectas!")
-      }
-      //? En el caso de que los datos ingresados sean incorrectos te muestra una alerta con un mensaje de error.
    }
 
    function logout() {
@@ -58,27 +66,29 @@ function App() {
    }, [access]);
    //? Lo que hace esta funcion es que si no tienes access te envia a la ruta de logueo.
 
-   function onSearch(id) {
+   const onSearch = async (id) => {
       const charId = characters.filter(char => char.id === Number(id))
       if (charId.length) {
          return alert(`${charId[0].name} ya existe!`)
       }
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-         ({ data }) => {
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               window.alert('¡No hay personajes con este ID!');
-            }
+      try {
+         const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('¡No hay personajes con este ID!');
          }
-      );
+      } catch (error) {
+         return res.status(500).send({ error: error.message });
+      }
    }
    //? Esta funcion solicita los datos a la url donde estan almacenados, lo primero que hace es filtrar el character
    //? que quieras agregar y ver si ya esta agregado, en esta caso te mostrara una alarta.
    //? Luego seteara el estado de characters agregando el pj que quieras siempre y cuando pase la primer condicion,
    //? y en caso de que ingreses un id no valido te muestra una alerta.
 
-   const onClose = id => {
+   const onClose = (id) => {
       setCharacters( (characters) => characters.filter(char => char.id !== Number(id)));
       dispatch(removeFav(id));
    }
@@ -86,9 +96,13 @@ function App() {
    //? pj a eliminar y devolvera un arreglo sin ese pj, y por ultimo despachara la accion removeFav con ese id
    //? para eliminarlo de la lista de favoritos.
 
+   const closeAll = () => {
+      setCharacters([])
+   };
+
    return (
       <div className='App'>
-         {location.pathname === '/' ? null : <Nav onSearch={onSearch} logout={logout} />}
+         {location.pathname === '/' ? null : <Nav onSearch={onSearch} logout={logout} closeAll={closeAll}/>}
          <Routes>
             <Route path="/" element={<Form login={login} />} />
             <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />

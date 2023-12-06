@@ -19,9 +19,9 @@ export default function Nav(props) {
                 <button style={{ backgroundColor: "skyblue", opacity: 1, display: "inline-flex", marginLeft: 100, padding: 10, borderRadius: 10, cursor: "pointer" }}><strong style={{fontWeight:800}}>Favorites🤩</strong></button>
             </NavLink>
 
-            <button style={{ backgroundColor: "red" , opacity: 1, display: "inline-flex", marginLeft: 1247, padding: 10, borderRadius: 10, cursor: "pointer" }} onClick={props.logout}><strong style={{fontWeight:800}}>Logout❌</strong></button>
+            <button style={{ backgroundColor: "red" , opacity: 1, display: "inline-flex", marginLeft: 1200, padding: 10, borderRadius: 10, cursor: "pointer" }} onClick={props.logout}><strong style={{fontWeight:800}}>Logout❌</strong></button>
 
-            <SearchBar onSearch={props.onSearch} />
+            <SearchBar onSearch={props.onSearch} closeAll={props.closeAll}/>
         </div>
         //* La funcion Nav renderiza la barra de navegacion para poder desplazarse por la pagina, cada boton te
         //* dirige a su respectiva ruta. Tambien tenemos el boton logout con la propiedad onClick = {props.logout}

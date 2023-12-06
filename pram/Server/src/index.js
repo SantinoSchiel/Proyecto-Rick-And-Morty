@@ -1,20 +1,32 @@
-const http = require("http");
-// const data = require("./utils/data");
-const getCharById = require("./controllers/getCharById");
+const server = require("./app");
+let PORT = 3001;
 
-const PORT = 3001;
+server.listen(PORT, () => {
+   console.log('Server raised in port: ' + PORT);
+});
 
-  http.createServer((req, res) => {
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
 
-    if(req.url.includes("/rickandmorty/character")){
-      const id = Number(req.url.split("/").pop());
-      getCharById(res, id);
-    }
-  }).listen(PORT, "127.0.0.1", () => {
-        console.log("Run port server 3001");
-      });
+
+
+
+// const http = require("http");
+// // const data = require("./utils/data");
+// const getCharById = require("./controllers/getCharById");
+
+// const PORT = 3001;
+
+//   http.createServer((req, res) => {
+
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+
+//     if(req.url.includes("/rickandmorty/character")){
+//       const id = Number(req.url.split("/").pop());
+//       getCharById(res, id);
+//     }
+//   }).listen(PORT, "127.0.0.1", () => {
+//         console.log("Run port server 3001");
+//       });
 
     // Verifica si la URL incluye "/rickandmorty/character".
     // if (req.url.includes("/rickandmorty/character")) {

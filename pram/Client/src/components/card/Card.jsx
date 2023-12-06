@@ -39,6 +39,8 @@ import { addFav, removeFav } from "../../redux/actions";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 //? Toma una funcion por argumento y te retorna la seccion que vos queres del state.
 
+import style from './Card.module.css'
+
 export default function Card(props) {
    //todo Creamos la funcion Card que recibe props por parametros, las props son una coleccion de datos obtenida
    //todo del contenedor padre.
@@ -56,6 +58,7 @@ export default function Card(props) {
 
 
    const handleFavorite = () => {
+      // const {id} = props;
       if (isFav === true) {
          setIsFav(false)
          dispatch(removeFav(props.id));
@@ -88,20 +91,22 @@ export default function Card(props) {
 
 
    return (
-      <div style={{ margin: 20 }}>
+      <div className={style.conteiner} style={{ margin: 20 }}>
+         <div className={style.botonFav}>
          {
             isFav ? (
-               <button onClick={handleFavorite} style={{ display: "flex", borderStyle: "solid", borderRadius:5, backgroundColor:"grey", cursor: "pointer" }}>❤️</button>
+               <button onClick={handleFavorite} >❤️</button>
             ) : (
-               <button onClick={handleFavorite} style={{ display: "flex", borderStyle: "solid", borderRadius:5, backgroundColor:"grey", cursor: "pointer" }}>🤍</button>
+               <button onClick={handleFavorite} >🤍</button>
             )
          }
          {/* Aqui renderizamos los emoji ❤️🤍❤️ y le decimos que si esta en favs renderice ❤️ y si no 🤍, para identificar si esta o no en mis favs. */}
-
-         <button onClick={() =>  props.onClose(props.id) } style={{ opacity: 0.8, backgroundColor: "red", marginLeft: 277, marginTop: 0, display: "flex", cursor: "pointer", borderStyle: "solid" }}><strong>X</strong></button>
+         <button className={style.cerrar} onClick={() => props.onClose(props.id)} ><strong>X</strong></button>
          {/* Boton que ejecuta onClose que toma el id de la carta para eliminarla */}
+         </div>
 
-         <img src={props.image} alt=''/>
+
+         <img className={style.imagen} src={props.image} alt=''/>
          {/* Imagen del personaje */}
          
          <Link to={`/detail/${props.id}`} style={{textDecoration:"none",color:"black"}}>

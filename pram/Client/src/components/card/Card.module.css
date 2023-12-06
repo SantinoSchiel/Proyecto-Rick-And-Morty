@@ -1,0 +1,39 @@
+.conteiner {
+    background-color: rgba(128, 128, 128, 0.837);
+    width: 330px;
+    height: 500px;
+    border-radius: 20px;
+    border: solid;
+}
+
+.botonFav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.botonFav button {
+    display: flex;
+    font-size: 25px;
+    background-color: transparent;
+    border-style: none;
+    left: 15px;
+    top: 12px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.cerrar {
+    background-color: red !important ;
+    font-size: 19px !important;
+    position: absolute !important;
+    left: 280px !important;
+    top: 15px !important;
+    border-style: solid !important;
+    border-radius: 15px !important;
+}
+
+.imagen {
+    margin: 10px;
+    border-radius: 10%;
+}
